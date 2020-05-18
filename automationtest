@@ -1,0 +1,333 @@
+import java.sql.Driver;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class testdriver {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		// System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\chromedriver_win32(2)\\chromedriver.exe");
+		 //WebDriver driver = new ChromeDriver();
+		 //driver.get("https://www.google.com/");
+		
+		/*make sure all the check are enabled in security tab
+		System.setProperty("webdriver.ie.driver","C:\\Users\\KollipakaJhansi\\Downloads\\IEDriverServer_x64_3.150.1\\IEDriverServer.exe");
+		InternetExplorerDriver driver = new InternetExplorerDriver();
+		driver.get("https://www.google.com/");
+		 */
+		
+		//working for firefox 49+ and selenium 3 use relative gecko driver
+		//opening a browser and searching for selenium training
+		/*System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://www.google.com/");
+		 WebElement searchbox = driver.findElement(By.name("q"));
+	        searchbox.sendKeys("selenium testing"); 
+	        searchbox.submit();
+	       */
+		/*
+		//keyboard and mouse input
+	        System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+			 WebDriver driver = new FirefoxDriver();
+			 driver.get("https://formy-project.herokuapp.com/keypress");
+			 WebElement searchbox = driver.findElement(By.id("name"));
+			 searchbox.click(); //to active the text area
+		     searchbox.sendKeys("jhansi");
+		     WebElement button = driver.findElement(By.id("button"));
+		     button.click();
+		    driver.quit();
+		    */
+		//Autocomplete form filling
+		
+		/*
+		 System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/autocomplete");
+		 WebElement autoc = driver.findElement(By.id("autocomplete"));
+		 autoc.sendKeys("1555 park blvd, Palo Alto,CA");
+		 Thread.sleep(1000);
+		 WebElement autocom = driver.findElement(By.className("pac-item"));
+		 autocom.click();
+		 
+		 driver.quit();
+ */
+		//Scroll Element -move to element should be used
+		
+		/*
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/scroll");
+		 WebElement autoc = driver.findElement(By.id("name"));
+		 //action class for scrolling down page
+		 Actions actions = new Actions(driver);
+		 actions.moveToElement(autoc);
+		 autoc.sendKeys("Jhansi kollipaka");
+		 WebElement autoc1 = driver.findElement(By.id("date"));
+		 autoc1.sendKeys("01/01/2020");
+		 driver.quit();
+		 */
+		
+		//Switch to Active window
+		/*
+		  System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/switch-window");
+		WebElement switchtab = driver.findElement(By.id("new-tab-button"));
+		switchtab.click();
+		
+		String originalHandle = driver.getWindowHandle();
+		
+		for(String handle1: driver.getWindowHandles())
+		{
+			driver.switchTo().window(handle1);
+		}
+		driver.switchTo().window(originalHandle);
+		//driver.switchTo().window(windowname);
+		//driver.switchTo().frame(framename);
+		//driver.switchTo().alert();
+		driver.quit();
+		*/
+		
+		//alert
+		/*
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/switch-window");
+		WebElement alertButton = driver.findElement(By.id("alert-button"));
+		alertButton.click();
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+		driver.quit();
+		*/
+		
+	//using javascript for close nd ok dialog box
+		
+		/*
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/modal");
+		 WebElement modal = driver.findElement(By.id("modal-button"));
+		 modal.click();
+		 
+		 
+		WebElement closeButton = driver.findElement(By.id("close-button"));
+		 
+		 JavascriptExecutor js  = (JavascriptExecutor)driver;
+		 js.executeScript("arguments[0].click();",closeButton);
+		 //
+		 //JavascriptExecutor - whn webdriver fails to click on element
+		 //to triger action on a page
+		 //to perform movement on a page
+		 driver.quit();
+		 
+		 */
+		
+		
+		//drag and drop
+		
+		/*System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/dragdrop");
+		
+		 WebElement image = driver.findElement(By.id("image"));
+		 
+		 WebElement box = driver.findElement(By.id("box"));
+		
+		 Actions action= new Actions(driver);
+		 action.dragAndDrop(image, box).build().perform();
+		*/
+		/*
+		//radio button s
+		
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/radiobutton");	 
+		 WebElement radioButton = driver.findElement(By.id("radio-button-1"));
+		 radioButton.click();
+		 WebElement radioButton1 = driver.findElement(By.cssSelector("input[value='option2']"));
+		 radioButton1.click();
+		 WebElement radioButton2 = driver.findElement(By.xpath("/html/body/div/div[3]/input"));
+		 radioButton2.click();
+		 driver.quit();
+		 */
+		
+		 //check boxes
+		 /*
+		 System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/checkbox");	 
+		 WebElement radioButton = driver.findElement(By.id("checkbox-1"));
+		 radioButton.click();
+		 WebElement radioButton1 = driver.findElement(By.cssSelector("input[value='checkbox-2']"));
+		 radioButton1.click();
+		 WebElement radioButton2 = driver.findElement(By.xpath("//*[@id=\"checkbox-3\"]"));
+		 radioButton2.click();
+		 driver.quit();
+		 */
+		 
+		 //date picker
+		/*
+		 System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/datepicker");	 
+		 WebElement datePicker = driver.findElement(By.id("datepicker"));
+		 datePicker.sendKeys("02/02/2020");
+		 datePicker.sendKeys(Keys.RETURN);
+		 
+		 */
+		 //dropdown
+		/*
+		 System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/dropdown");	 
+		 WebElement dropDown = driver.findElement(By.id("dropdownMenuButton"));
+		 dropDown.click();
+		 WebElement autoComplete = driver.findElement(By.id("autocomplete"));
+		 autoComplete.click();
+		 */
+		//file upload
+		/*
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/fileupload");	 
+		 
+		 
+		 WebElement fileupload1 = driver.findElement(By.id("file-upload-field"));
+		 
+		 fileupload1.sendKeys("C:\\Users\\KollipakaJhansi\\Desktop\\ccb devtest\\testing doc\\Test Automation Overview.pptx");
+		 fileupload1.click();
+		 
+		 */
+		
+		//implicit waits
+		/* 
+		 System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		 WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/autocomplete");
+		 WebElement autoc = driver.findElement(By.id("autocomplete"));
+		 autoc.sendKeys("1555 park blvd, Palo Alto,CA");
+		 //Thread.sleep(1000);
+		 driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		 WebElement autocom = driver.findElement(By.className("pac-item"));
+		 autocom.click();
+		 
+		 driver.quit();
+		 */
+		//explicit waits
+		/*
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/autocomplete");
+		 WebElement autoc = driver.findElement(By.id("autocomplete"));
+		 autoc.sendKeys("1555 park blvd, Palo Alto,CA");
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("autocomplete")));
+		driver.quit();
+		
+		*/
+		
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\KollipakaJhansi\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
+		 driver.get("https://formy-project.herokuapp.com/form");
+		 
+		 /* clean up starts
+		 driver.findElement(By.id("first-name")).sendKeys("jhansi");
+		 driver.findElement(By.id("last-name")).sendKeys("kollipaka");
+		 driver.findElement(By.id("job-title")).sendKeys("QA tester");
+		 driver.findElement(By.id("radio-button-3")).click();
+		 driver.findElement(By.id("checkbox-2")).click();
+		 
+		 driver.findElement(By.cssSelector("option[value='4']"));
+		 
+		 
+		 driver.findElement(By.id("datepicker")).sendKeys("01/01/2020");
+		 driver.findElement(By.id("datepicker")).sendKeys(Keys.RETURN);
+		 
+		 driver.findElement(By.cssSelector(".btn.btn-lg.btn-primary")).click();
+		 */
+		 //replace above code with single method247 to 262
+		 
+		 submitForm(driver);
+		 
+		 
+		//now we need to wait for sometime form to re -direct to submit page
+		 /*create wait method
+		  
+		 WebDriverWait wait = new WebDriverWait(driver,10);
+		 
+	     //wait for alert 
+		 WebElement alert = wait.until((ExpectedConditions.visibilityOfElementLocated(By.className("alert"))));
+		 */
+		 //replace with wait method 267 to 271
+		 
+		 WaitForAlertBanner(driver);
+		 
+		 
+		//now validating the submitted page with the alert displayed
+		 //write assertions using junit
+		 
+		 //String alertText1 = alert.getText();
+		 //assertEquals("The form was successfully submitted!",alterText1);
+		 
+		 
+		 
+		 assertEquals("The form was successfully submitted!",getAlertbanner(driver));
+		 
+		 driver.quit();
+		 
+	
+	}
+
+	private static void assertEquals(String string, String alertText1) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	//clean up for above code:
+	
+	
+public static void submitForm(WebDriver driver)
+{
+	 driver.findElement(By.id("first-name")).sendKeys("jhansi");
+	 driver.findElement(By.id("last-name")).sendKeys("kollipaka");
+	 driver.findElement(By.id("job-title")).sendKeys("QA tester");
+	 driver.findElement(By.id("radio-button-3")).click();
+	 driver.findElement(By.id("checkbox-2")).click();
+	 
+	 driver.findElement(By.cssSelector("option[value='4']"));
+	 
+	 
+	 driver.findElement(By.id("datepicker")).sendKeys("01/01/2020");
+	 driver.findElement(By.id("datepicker")).sendKeys(Keys.RETURN);
+	 
+	 driver.findElement(By.cssSelector(".btn.btn-lg.btn-primary")).click();
+}
+	
+	public static void WaitForAlertBanner(WebDriver driver)
+	{
+		WebDriverWait wait = new WebDriverWait(driver,10);
+	     //wait for alert 
+		 WebElement alert = wait.until((ExpectedConditions.visibilityOfElementLocated(By.className("alert"))));
+	}
+	
+	public static String getAlertbanner(WebDriver driver)
+	{
+		return driver.findElement(By.className("alert")).getText();
+	}
+	
+	}
